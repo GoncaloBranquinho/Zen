@@ -266,7 +266,7 @@ void process_input(WINDOW *my_win, WINDOW *top, WINDOW *bottom, char *filename, 
     getmaxyx(my_win,maxY,maxX);
     end_line = maxY;
     Content *line = head;
-    Mode mode = DEFAULT;
+    Mode mode = EDIT;
     keypad(my_win, TRUE); 
     scrollok(my_win, TRUE);
     if (!line) {
@@ -286,9 +286,9 @@ void process_input(WINDOW *my_win, WINDOW *top, WINDOW *bottom, char *filename, 
                 end_line = maxY-1;
             }
             case ESC: {
-                mode = DEFAULT;
+                //mode = DEFAULT;
                 break;
-            }
+	    }
             case KEY_RIGHT: {
                 if (x < line->text_size && x != maxX - 1) {
                     x++;
@@ -430,7 +430,7 @@ void process_input(WINDOW *my_win, WINDOW *top, WINDOW *bottom, char *filename, 
                     }
                 }                
                 fclose(fp);
-                free_content(head);
+                   
                 return;
             }
             case TAB: {  
@@ -487,10 +487,5 @@ typedef struct undo {
     int starty, startx, endy, endx; // position
     struct undo *next; // next move
 } UndoNode;
-
-
-
-
-
 
 // F1 or ctrl q -> quit | ctrl c -> copy | ctrl v -> copy | ctrl m -> move to line | ctrl
