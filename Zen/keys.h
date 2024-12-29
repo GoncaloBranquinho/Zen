@@ -20,7 +20,7 @@ int shift_tab(Content *line, int size, int range, int pos, const bool reversed);
 
 void display_again(WINDOW *my_win, Content *head, int start_line, int max_lines);	
 
-Content *back_space(WINDOW *my_win, Content **head, Content *line, int size, int pos, int y, char *ins);
+Content *back_space(Content **head, Content *line, int size, int pos);
 
 void remove_node(Content **head, Content *to_remove);
 

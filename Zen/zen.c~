@@ -285,10 +285,10 @@ void process_input(WINDOW *my_win, WINDOW *top, WINDOW *bottom, char *filename, 
                 getmaxyx(my_win,maxY,maxX);
                 end_line = maxY-1;
             }
-            case ESC: {
-                //mode = DEFAULT;
+          /*case ESC: {
+                mode = DEFAULT;
                 break;
-	    }
+	    }*/
             case KEY_RIGHT: {
                 if (x < line->text_size && x != maxX - 1) {
                     x++;
